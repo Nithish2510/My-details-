@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nithish Kumar S | Portfolio</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #111827;
+      --bg-card: #1e293b;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 500px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    .hero-image-wrapper {
+      flex: 0 0 280px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-tag {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .card ul {
+      margin-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Skills Badges */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Contact Details */
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-card);
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-item i {
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+      .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">Nithish.dev</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="container hero">
+    <div class="hero-content">
+      <span class="badge">Full-Stack & Biomedical Developer</span>
+      <h1 class="hero-title">Hi, I'm Nithish Kumar S</h1>
+      <p class="hero-subtitle">
+        Software Systems & Biomedical Engineering student passionate about building scalable, user-centric web applications and embedded hardware solutions.
+      </p>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/nithishkumar-r15" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/nithishkumar__yadav?igsh=dXkxOXBlNTIyeHJ5" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="mailto:nithishkumaryadav2510@gmail.com" class="social-btn" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="tel:+916382494060" class="social-btn" title="Phone">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <img src="1000002374.jpg" alt="Nithish Kumar S" class="profile-img" onerror="this.src='https://via.placeholder.com/260/1e293b/38bdf8?text=Nithish+Kumar';" />
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Career Objective</h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 850px;">
+        Detail-oriented Software Systems student with a strong foundation in full-stack web development. Seeking to leverage expertise in HTML, CSS, JavaScript, and modern frameworks to build scalable, user-centric web applications in a fast-paced professional environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Key Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 class="card-title">Voice-Controlled Wheelchair System</h3>
+          <p class="card-subtitle">Embedded Systems / Healthcare Tech</p>
+          <ul>
+            <li>Developed an assistive mobility wheelchair controlled via real-time voice commands using an embedded microcontroller and Bluetooth interface.</li>
+            <li>Integrated ultrasonic sensors for dynamic obstacle avoidance and automated safety cut-offs.</li>
+            <li>Optimized motor control algorithms to ensure low-latency responsiveness and smooth acceleration/deceleration.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Smart Blind Stick</h3>
+          <p class="card-subtitle">Arduino / Sensor Integration</p>
+          <ul>
+            <li>Engineered an assistive navigation stick using Arduino and ultrasonic sensors for visually impaired individuals.</li>
+            <li>Implemented multi-modal feedback alerts (buzzer and vibration motor) on real-time obstacle detection to ensure independent navigation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills & Expertise</h2>
+      <div class="skills-wrapper">
+        <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</span>
+        <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+        <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span class="skill-pill"><i class="fa-brands fa-java"></i> Java</span>
+        <span class="skill-pill"><i class="fa-brands fa-python"></i> Python (Basic)</span>
+        <span class="skill-pill"><i class="fa-solid fa-layer-group"></i> Frontend & Backend</span>
+        <span class="skill-pill"><i class="fa-solid fa-microchip"></i> Electrical & Electronics Work</span>
+        <span class="skill-pill"><i class="fa-solid fa-gears"></i> Mechanical Work</span>
+        <span class="skill-pill"><i class="fa-solid fa-heart-pulse"></i> Biomedical Instrumentation</span>
+        <span class="skill-pill"><i class="fa-solid fa-language"></i> English & Japanese</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Certifications -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience & Training</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Biomedical Engineering Intern</h3>
+            <span class="card-tag">14 Days</span>
+          </div>
+          <p class="card-subtitle">Dr. Thiru Neuro & Multi Speciality Hospital Pvt Ltd, Salem</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Gained clinical exposure to diagnostic equipment, patient-monitoring hardware, and hospital workflow operations.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Tessolve Semiconductor Training</h3>
+            <span class="card-tag">Certified</span>
+          </div>
+          <p class="card-subtitle">Embedded Systems & IoT</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Completed hands-on practical training covering embedded microcontrollers, sensor interfacing, and IoT system applications.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">AI for Beginners</h3>
+            <span class="card-tag">Certification</span>
+          </div>
+          <p class="card-subtitle">HP LIFE</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Explored core artificial intelligence concepts, modern machine learning workflows, and practical technology integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">B.E. Biomedical Engineering</h3>
+            <span class="card-tag">2023 - 2027</span>
+          </div>
+          <p class="card-subtitle">AVS Engineering College</p>
+          <p style="color: var(--text-muted);">Current CGPA: <strong>7.54</strong></p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">HSC (Class XII)</h3>
+            <span class="card-tag">2023</span>
+          </div>
+          <p class="card-subtitle">Govt Boys Higher Secondary School, Harur</p>
+          <p style="color: var(--text-muted);">Score: <strong>65%</strong></p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">SSLC (Class X)</h3>
+            <span class="card-tag">2021</span>
+          </div>
+          <p class="card-subtitle">Govt High School, Ellapudayampatti</p>
+          <p style="color: var(--text-muted);">Status: <strong>Completed</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-list">
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Email</div>
+            <a href="mailto:nithishkumaryadav2510@gmail.com" style="color: var(--accent); font-size: 0.95rem;">nithishkumaryadav2510@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Phone</div>
+            <a href="tel:+916382494060" style="color: var(--accent); font-size: 0.95rem;">+91 6382494060</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/nithishkumar-r15" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-size: 0.95rem;">nithishkumar-r15</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-brands fa-instagram"></i>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Instagram</div>
+            <a href="https://www.instagram.com/nithishkumar__yadav?igsh=dXkxOXBlNTIyeHJ5" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-size: 0.95rem;">@nithishkumar__yadav</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Nithish Kumar S. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
